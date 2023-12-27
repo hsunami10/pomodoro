@@ -23,6 +23,24 @@ To run the development server, run: `npm run dev` and go to whatever the termina
 - [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
 - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
-#### settings.json
+## Initial Setup
 
-TODO - put a copy of settings.json here
+### ESLint (v8.56.0)
+
+Run `npx eslint --init`
+
+Answers to questions:
+
+- How would you like to use ESLint? · **To check syntax, find problems, and enforce code style**
+- What type of modules does your project use? · **Javascript module (import/export)**
+- Which framework does your project use? · **React**
+- Does your project use TypeScript? · **Yes**
+- Where does your code run? · **Browser**
+- How would you like to define a style for your project? · prompt
+- What format do you want your config file to be in? · **YAML**
+- What style of indentation do you use? · 4
+- What quotes do you use for strings? · single
+- What line endings do you use? · unix
+- Do you require semicolons? · No / Yes
+
+- How would you like to use ESLint?
