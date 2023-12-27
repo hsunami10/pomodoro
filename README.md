@@ -36,11 +36,9 @@ Answers to questions:
 - Which framework does your project use? · **React**
 - Does your project use TypeScript? · **Yes**
 - Where does your code run? · **Browser**
-- How would you like to define a style for your project? · prompt
+- How would you like to define a style for your project? · **prompt**
 - What format do you want your config file to be in? · **YAML**
-- What style of indentation do you use? · 4
-- What quotes do you use for strings? · single
-- What line endings do you use? · unix
-- Do you require semicolons? · No / Yes
-
-- How would you like to use ESLint?
+- What style of indentation do you use? · **spaces**
+- What quotes do you use for strings? · **single**
+- What line endings do you use? · **unix**
+- Do you require semicolons? · **Yes**
