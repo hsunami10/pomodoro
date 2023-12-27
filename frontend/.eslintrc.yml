@@ -2,10 +2,13 @@ root: true
 env:
   browser: true
   es2021: true
+  jest: true
 extends:
   - eslint:recommended
+  - plugin:import/recommended
   - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
+  - plugin:react/jsx-runtime # After React v17+, no need to import React from 'react' everywhere.
   - plugin:react-hooks/recommended
 ignorePatterns:
   - dist
@@ -14,13 +17,36 @@ ignorePatterns:
 
 parser: '@typescript-eslint/parser'
 parserOptions:
+  ecmaFeatures:
+    jsx: true
   ecmaVersion: latest
   sourceType: module
 plugins:
   - '@typescript-eslint'
   - react
   - react-refresh
+
+settings:
+  # Fix the "Warning: React version not specified in eslint-plugin-react settings" message.
+  react:
+    version: detect
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  # Use absolute paths
+  import/resolver:
+    node:
+      moduleDirectory:
+        - node_modules
+        - src
+
 rules:
+
+  ###########
+  # General #
+  ###########
+
   indent:
     - error
     - 2
@@ -33,7 +59,11 @@ rules:
   semi:
     - error
     - always
-  
+
+  #################
+  # React Refresh #
+  #################
+
   react-refresh/only-export-components:
     - warn
     - allowConstantExport: true

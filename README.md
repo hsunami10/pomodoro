@@ -27,7 +27,7 @@ To run the development server, run: `npm run dev` and go to whatever the termina
 
 ### ESLint (v8.56.0)
 
-Run `npx eslint --init`
+Run `npm init @eslint/config`
 
 Answers to questions:
 
