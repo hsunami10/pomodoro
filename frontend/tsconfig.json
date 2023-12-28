@@ -19,9 +19,10 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* https://typescript-eslint.io/rules/no-unused-vars/ */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -10,9 +10,9 @@ extends:
   - plugin:react/recommended
   - plugin:react/jsx-runtime # After React v17+, no need to import React from 'react' everywhere.
   - plugin:react-hooks/recommended
+  - prettier # eslint-config-prettier (put it last to override other configs)
 ignorePatterns:
   - dist
-  - eslintrc.yml
   - node_modules
 
 parser: '@typescript-eslint/parser'
@@ -42,23 +42,16 @@ settings:
         - src
 
 rules:
-
   ###########
   # General #
   ###########
 
-  indent:
+  curly:
     - error
-    - 2
-  # linebreak-style:
+    - all
+  # quotes:
   #   - error
-  #   - unix
-  quotes:
-    - error
-    - single
-  semi:
-    - error
-    - always
+  #   - single
 
   #################
   # React Refresh #
