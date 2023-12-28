@@ -10,6 +10,7 @@ To run the development server, run: `npm run dev` and go to whatever the termina
 
 #### Extensions
 
+- [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode)
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
 - [Doxygen Documentation Generator](https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen)
@@ -19,7 +20,8 @@ To run the development server, run: `npm run dev` and go to whatever the termina
 - [GitLens - Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Shell Syntax](https://marketplace.visualstudio.com/items?itemName=bmalehorn.shell-syntax)
+- [ShellCheck](https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck)
+- [shell-format](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format)
 - [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
 - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 

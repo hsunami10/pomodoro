@@ -5,6 +5,9 @@ import viteLogo from '../public/vite.svg';
 function App() {
   const [count, setCount] = useState(0);
 
+  const a = 'a';
+  if (a) const x = 20
+
   return (
     <>
       <div>

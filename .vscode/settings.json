@@ -1,14 +1,39 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true, TODO: DO NOT COMMIT
   // "editor.codeActionsOnSave": {
   //   "source.organizeImports": true,
   //   "source.fixAll.eslint": true
   // },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "[ignore]": {
-  //   "editor.defaultFormatter": "foxundermoon.shell-format"
-  // },
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "files.eol": "\n"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[gitignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "editor.tabSize": 2,
   "editor.fontSize": 14,
   "editor.insertSpaces": true
