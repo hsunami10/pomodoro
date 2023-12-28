@@ -1,3 +1,10 @@
+# Default
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# Ignore artifacts
 dist
-node_modules
 build
+coverage
