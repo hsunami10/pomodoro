@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO
-
 set -e
 
 gitroot=$(git rev-parse --show-toplevel || echo ".")
@@ -10,10 +8,10 @@ if [ ! -d "${gitroot}" ]; then
 fi
 
 pre_commit_file="${gitroot}/.git/hooks/pre-commit"
-pre_commit_file_impl="${gitroot}/scripts/pre-commit-hooks/pre_commit_hooks.sh"
+prettier_eslint_file="${gitroot}/frontend/scripts/pre-commit-hooks/prettier_eslint.sh"
 
-if [ ! -f "${pre_commit_file_impl}" ]; then
-  echo "pre_commit_hooks.sh does not exist at path $pre_commit_file_impl."
+if [ ! -f "$prettier_eslint_file" ]; then
+  echo "prettier_eslint.sh does not exist at path $prettier_eslint_file"
   exit 1
 fi
 
@@ -24,16 +22,12 @@ else
   cp "$gitroot/.git/hooks/pre-commit.sample" "$pre_commit_file"
 fi
 
-# >$pre_commit_file
 echo "#!/bin/sh" >"$pre_commit_file"
 {
   echo ""
-  echo "sh $pre_commit_file_impl"
+  echo "sh $prettier_eslint_file"
   echo ""
 } >>"$pre_commit_file"
-# echo "" >>"$pre_commit_file"
-# echo "sh $pre_commit_file_impl" >>"$pre_commit_file"
-# echo "" >>"$pre_commit_file"
 chmod a+x "$pre_commit_file"
 
 echo "Installation finished!"

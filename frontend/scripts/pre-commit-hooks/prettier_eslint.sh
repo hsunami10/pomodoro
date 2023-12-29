@@ -37,7 +37,7 @@ if [ -n "$TS_TSX_JSON_DIFFED_FILES" ]; then
     fi
   fi
   echo "prettier complete!"
-  git add "$TS_TSX_JSON_DIFFED_FILES"
+  echo "$TS_TSX_JSON_DIFFED_FILES" | xargs git add
 fi
 
 ##########
@@ -61,12 +61,12 @@ if [ -n "$TS_TSX_DIFFED_FILES" ]; then
     fi
   fi
   echo "eslint complete!"
-  git add "$TS_TSX_DIFFED_FILES"
+  echo "$TS_TSX_DIFFED_FILES" | xargs git add
 
   # Run tsc on changed files.
   # Ensure types check out
   # echo "Running strict tsc checks..."
   # yarn tsc
-  # git add $TS_TSX_DIFFED_FILES
+  # echo "$TS_TSX_DIFFED_FILES" | xargs git add
   # echo "tsc type-checking complete!"
 fi
