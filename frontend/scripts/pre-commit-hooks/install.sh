@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO
+
 set -e
 
 gitroot=$(git rev-parse --show-toplevel || echo ".")
