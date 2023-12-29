@@ -7,7 +7,7 @@ if [ ! -d "${gitroot}" ]; then
   exit 1
 fi
 
-pre_commit_file="${gitroot}/.git/hooks/pre-commit"
+pre_commit_file="${gitroot}/.git/hooks/pre-commit" # Target file
 prettier_eslint_file="${gitroot}/frontend/scripts/pre-commit-hooks/prettier_eslint.sh"
 
 if [ ! -f "$prettier_eslint_file" ]; then
