@@ -44,3 +44,52 @@ Answers to questions:
 - What quotes do you use for strings? · **single**
 - What line endings do you use? · **unix**
 - Do you require semicolons? · **Yes**
+
+## Documentation
+
+### Project Structure
+
+src
+
+- assets
+- components
+- config
+- views
+  - auth
+  - profile
+  - timer
+- hooks
+- routes
+- stores
+- test
+- types
+- utils
+
+```
+.
+└── /src
+    └── /views
+        ├── /Authors
+        │   ├── /AuthorsPage
+        │   │   ├── AuthorsPage.js
+        │   │   └── AuthorsPage.test.js
+        │   └── /AuthorBlurb
+        │       ├── /AuthorBlurb.js
+        │       └── /AuthorBlurb.test.js
+        ├── /Books
+        │   ├── /BooksPage
+        │   │   ├── BooksPage.js
+        │   │   └── BooksPage.test.js
+        │   └── /BookForm
+        │       ├── /BookForm.js
+        │       └── /BookForm.test.js
+        └── /Login
+            ├── LoginPage
+            │   ├── LoginPage.styles.js
+            │   ├── LoginPage.js
+            │   └── LoginPage.test.js
+            └── LoginForm
+                ├── LoginForm.js
+                └── LoginForm.test.js
+```
+
