@@ -22,9 +22,7 @@ cd "$gitroot/frontend"
 if [ -n "$TS_TSX_JSON_DIFFED_FILES" ]; then
   # Ensure there aren't prettier problems.
   echo "Running Prettier..."
-  if npm run --silent prettier -- "$TS_TSX_JSON_DIFFED_FILES"; then
-    # if echo "$TS_TSX_JSON_DIFFED_FILES" | xargs npx prettier --check; then
-    echo
+  if echo "$TS_TSX_JSON_DIFFED_FILES" | xargs npm run --silent prettier; then
     : # no-op
   else
     e=$? # return code from if
@@ -47,8 +45,7 @@ fi
 if [ -n "$TS_TSX_DIFFED_FILES" ]; then
   # Ensure there aren't eslint problems.
   echo "Running ESLint..."
-  if npm run --silent lint -- "$TS_TSX_DIFFED_FILES"; then
-    # if echo "$TS_TSX_DIFFED_FILES" | xargs npx eslint; then
+  if echo "$TS_TSX_DIFFED_FILES" | xargs npm run --silent lint; then
     : # no-op
   else
     e=$? # return code from if
