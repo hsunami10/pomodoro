@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Add import path aliases (alphabetical order)
+      // Path aliases for imports (alphabetical order)
       //* IMPORTANT: Mirror changes in tsconfig.json, .eslintrc.yml
       '@': resolve(__dirname, './src'),
       '@assets': resolve(__dirname, './src/assets'),

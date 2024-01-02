@@ -39,7 +39,7 @@ settings:
     '@typescript-eslint/parser':
       - .ts
       - .tsx
-  # Use absolute paths
+  # Absolute paths
   import/resolver: # eslint-import-resolver-***
     # https://github.com/import-js/eslint-plugin-import/issues/1485#issuecomment-535351922
     typescript: {}
@@ -48,7 +48,7 @@ settings:
         - .ts
         - .tsx
       map:
-        # Add import path aliases (alphabetical order)
+        # Path aliases for imports (alphabetical order)
         #* IMPORTANT: Mirror changes in vite.config.ts, tsconfig.json
         - ['@', './src']
         - ['@assets', './src/assets']

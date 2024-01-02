@@ -6,10 +6,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Use absolute paths */
+    /* Absolute paths */
     "baseUrl": ".",
     "paths": {
-      // Add import path aliases (alphabetical order)
+      // Path aliases for imports (alphabetical order)
       //* IMPORTANT: Mirror changes in vite.config.ts, .eslintrc.yml
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
