@@ -6,6 +6,62 @@ This project is created from Vite: `npm create vite@latest` - typescript-swc Rea
 
 To run the development server, run: `npm run dev` and go to whatever the terminal says "Local" is (ex. `http://localhost:5173/`)
 
+### Install brew packages
+
+```bash
+brew install postgresql git watchman ruby node nvm yarn emacs
+```
+
+### Install [iTermocil](https://github.com/TomAnthony/itermocil)
+
+```bash
+brew install TomAnthony/brews/itermocil
+mkdir ~/.itermocil
+touch ~/.itermocil/pomodoro.yml
+itermocil --edit pomodoro
+```
+
+In `~/.itermocil/pomodoro.yml`:
+
+```yaml
+windows:
+  - name: Frontend Dev
+    root: ~/Documents/GitHub/pomodoro/frontend
+    layout: even-horizontal
+    panes:
+      - npm run dev
+      - npx tsc --watch
+```
+
+Then run:
+
+```bash
+itermocil pomodoro
+```
+
+#### Troubleshooting
+
+If you encounter the below error:
+
+```bash
+Error: Invalid formula: /usr/local/Homebrew/Library/Taps/tomanthony/homebrew-brews/Formula/squid.rb
+squid: Calling `sha256 "digest" => :tag` in a bottle block is disabled! Use `brew style --fix` on the formula to update the style or use `sha256 tag: "digest"` instead.
+Please report this issue to the tomanthony/brews tap (not Homebrew/brew or Homebrew/core), or even better, submit a PR to fix it:
+  /usr/local/Homebrew/Library/Taps/tomanthony/homebrew-brews/Formula/squid.rb:9
+
+Error: Cannot tap tomanthony/brews: invalid syntax in tap!
+```
+
+[Build the formula from sources:](https://github.com/TomAnthony/itermocil/issues/117#issuecomment-874879053)
+
+```bash
+git clone git@github.com:TomAnthony/homebrew-brews.git
+cd homebrew-brews/
+brew style --fix Formula
+brew install --build-from-source Formula/itermocil.rb
+mkdir ~/.itermocil # Continue with steps from above
+```
+
 ### VSCode
 
 #### Extensions
