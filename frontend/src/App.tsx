@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import reactLogo from 'assets/react.svg';
-import viteLogo from '../public/vite.svg';
+import reactLogo from '@assets/react.svg';
+
+/* eslint-disable import/no-unresolved */
+import viteLogo from '/vite.svg';
+/* eslint-enable import/no-unresolved */
 
 function App() {
   const [count, setCount] = useState(0);

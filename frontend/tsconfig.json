@@ -7,7 +7,12 @@
     "skipLibCheck": true,
 
     /* Use absolute paths */
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -22,7 +27,7 @@
     "noFallthroughCasesInSwitch": true,
     /* https://typescript-eslint.io/rules/no-unused-vars/ */
     "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedParameters": false
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
