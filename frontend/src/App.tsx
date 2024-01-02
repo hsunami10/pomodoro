@@ -1,8 +1,9 @@
 import { useState } from 'react';
+//! TODO: Shows import/no-unresolved error in IDE but not terminal
 import reactLogo from '@assets/react.svg';
 
 /* eslint-disable import/no-unresolved */
-import viteLogo from '/vite.svg';
+import viteLogo from '/vite.svg'; // TODO: Figure out how to use public paths with ESLint
 /* eslint-enable import/no-unresolved */
 
 function App() {

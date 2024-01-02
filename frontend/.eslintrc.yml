@@ -48,6 +48,8 @@ settings:
         - .ts
         - .tsx
       map:
+        # Add import path aliases (alphabetical order)
+        #* IMPORTANT: Mirror changes in vite.config.ts, tsconfig.json
         - ['@', './src']
         - ['@assets', './src/assets']
         - ['@components', './src/components']

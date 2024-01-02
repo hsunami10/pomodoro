@@ -9,6 +9,8 @@
     /* Use absolute paths */
     "baseUrl": ".",
     "paths": {
+      // Add import path aliases (alphabetical order)
+      //* IMPORTANT: Mirror changes in vite.config.ts, .eslintrc.yml
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"]
