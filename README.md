@@ -8,8 +8,10 @@ To run the development server, run: `npm run dev` and go to whatever the termina
 
 ### Install brew packages
 
+*TODO: Set up with Docker*
+
 ```bash
-brew install postgresql git watchman ruby node nvm yarn emacs
+brew install postgresql git node nvm emacs
 ```
 
 ### Install [iTermocil](https://github.com/TomAnthony/itermocil)
