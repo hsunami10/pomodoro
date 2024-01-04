@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 const Root = () => {
   return (
@@ -24,16 +24,16 @@ const Root = () => {
         <nav>
           <ul>
             <li>
-              <a href={`/timer`}>Timer</a>
+              <Link to={`/timer`}>Timer</Link>
             </li>
             <li>
-              <a href={`/tasks`}>Tasks</a>
+              <Link to={`/tasks`}>Tasks</Link>
             </li>
             <li>
-              <a href={`/profile`}>Profile</a>
+              <Link to={`/profile`}>Profile</Link>
             </li>
             <li>
-              <a href={`/settings`}>Settings</a>
+              <Link to={`/settings`}>Settings</Link>
             </li>
           </ul>
         </nav>
