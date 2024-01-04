@@ -13,7 +13,8 @@
       //* IMPORTANT: Mirror changes in vite.config.ts, .eslintrc.yml
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@routes/*": ["src/routes/*"]
     },
 
     /* Bundler mode */

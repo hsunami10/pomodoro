@@ -29,8 +29,11 @@ In `~/.itermocil/pomodoro.yml`:
 windows:
   - name: Frontend Dev
     root: ~/Documents/GitHub/pomodoro/frontend
-    layout: even-horizontal
+    layout: main-vertical
     panes:
+      - commands:
+          - cd ~/Documents/GitHub/pomodoro/frontend
+        focus: true
       - npm run dev
       - npx tsc --watch
 ```
@@ -70,6 +73,7 @@ mkdir ~/.itermocil # Continue with steps from above
 
 - [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode)
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [Comment Anchors](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors)
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
 - [Doxygen Documentation Generator](https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen)
 - [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)

@@ -49,10 +49,11 @@ settings:
         - .tsx
       map:
         # Path aliases for imports (alphabetical order)
-        #* IMPORTANT: Mirror changes in vite.config.ts, tsconfig.json
+        #* Mirror changes in vite.config.ts, tsconfig.json
         - ['@', './src']
         - ['@assets', './src/assets']
         - ['@components', './src/components']
+        - ['@routes', './src/routes']
 
 rules:
   ###########
