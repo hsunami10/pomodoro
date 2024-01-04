@@ -19,8 +19,5 @@
   "editor.tabSize": 2,
   "editor.fontSize": 14,
   "editor.insertSpaces": true
-  // "eslint.nodePath": "../frontend/node_modules",
-  // "eslint.options": {
-  //   "overrideConfigFile": "../frontend/.eslintrc.yml"
-  // }
+  // "eslint.workingDirectories": ["./frontend"] // VSCode ESLint defaults to project working directory
 }

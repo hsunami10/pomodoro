@@ -7,11 +7,14 @@ extends:
   - eslint:recommended
   - plugin:import/recommended
   - plugin:import/typescript
-  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/recommended-type-checked # or plugin:@typescript-eslint/strict-type-checked
+  - plugin:@typescript-eslint/stylistic-type-checked
   - plugin:react/recommended
   - plugin:react/jsx-runtime # After React v17+, no need to import React from 'react' everywhere.
   - plugin:react-hooks/recommended
   - prettier # eslint-config-prettier (put it last to override other configs)
+globals:
+  __dirname: true
 ignorePatterns:
   - dist
   - node_modules
@@ -22,6 +25,10 @@ parserOptions:
     jsx: true
   ecmaVersion: latest
   sourceType: module
+  project:
+    - ./tsconfig.json
+    - ./tsconfig.node.json
+  # tsconfigRootDir: ./
 plugins:
   - '@typescript-eslint'
   - react
