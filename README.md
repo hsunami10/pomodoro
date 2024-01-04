@@ -27,6 +27,10 @@ In `~/.itermocil/pomodoro.yml`:
 
 ```yaml
 windows:
+  - name: Root
+    root: ~/Documents/GitHub/pomodoro
+    panes:
+      - cd ~/Documents/GitHub/pomodoro
   - name: Frontend Dev
     root: ~/Documents/GitHub/pomodoro/frontend
     layout: main-vertical
