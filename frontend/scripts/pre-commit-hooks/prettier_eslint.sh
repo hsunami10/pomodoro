@@ -28,7 +28,7 @@ if [ -n "$TS_TSX_JSON_DIFFED_FILES" ]; then
     e=$? # return code from if
     if [ "${e}" -eq "1" ]; then
       echo "Your files aren't pretty. Let me fix that for you..."
-      npm run --silent prettier:fix -- "$TS_TSX_JSON_DIFFED_FILES"
+      echo "$TS_TSX_JSON_DIFFED_FILES" | xargs npm run --silent prettier:fix
     elif [ "${e}" -gt "1" ]; then
       echo "prettier returned an exit code > 1."
       exit ${e}
@@ -51,7 +51,7 @@ if [ -n "$TS_TSX_DIFFED_FILES" ]; then
     e=$? # return code from if
     if [ "${e}" -eq "1" ]; then
       echo "Your files aren't linted correctly. Attempting to fix for you..."
-      npm run --silent lint:fix -- "$TS_TSX_DIFFED_FILES"
+      echo "$TS_TSX_DIFFED_FILES" | xargs npm run --silent lint:fix
     elif [ "${e}" -gt "1" ]; then
       echo "eslint returned an exit code > 1."
       exit ${e}
@@ -62,8 +62,8 @@ if [ -n "$TS_TSX_DIFFED_FILES" ]; then
 
   # Run tsc on changed files.
   # Ensure types check out
-  # echo "Running strict tsc checks..."
-  # yarn tsc
-  # echo "$TS_TSX_DIFFED_FILES" | xargs git add
-  # echo "tsc type-checking complete!"
+  echo "Running strict tsc checks..."
+  npx tsc
+  echo "$TS_TSX_DIFFED_FILES" | xargs git add
+  echo "tsc type-checking complete!"
 fi

@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 const Root = () => {
   return (
     <>
@@ -25,6 +27,9 @@ const Root = () => {
               <a href={`/timer`}>Timer</a>
             </li>
             <li>
+              <a href={`/tasks`}>Tasks</a>
+            </li>
+            <li>
               <a href={`/profile`}>Profile</a>
             </li>
             <li>
@@ -33,7 +38,9 @@ const Root = () => {
           </ul>
         </nav>
       </div>
-      <div id="detail"></div>
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   );
 };
