@@ -8,6 +8,7 @@ import SettingsPage from '@pages/settings/SettingsPage';
 import TasksPage from '@pages/tasks/TasksPage';
 import ErrorPage from '@/error-page';
 import './index.css';
+// import './global.css';
 
 const router = createBrowserRouter([
   {

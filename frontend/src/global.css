@@ -1,0 +1,8 @@
+:root {
+  /* Use with var(--sea-blue) */
+  --sea-blue: #31aab7;
+  --midnight: #023047;
+  --sunshine: #ffb703;
+  --sunset: #fb8500;
+  --sky-blue: #8ecae6;
+}

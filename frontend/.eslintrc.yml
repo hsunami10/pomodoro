@@ -25,6 +25,11 @@ parserOptions:
     jsx: true
   ecmaVersion: latest
   sourceType: module
+  project:
+    - tsconfig.json
+    - tsconfig.node.json
+  tsconfigRootDir: ./
+
 plugins:
   - '@typescript-eslint'
   - react
