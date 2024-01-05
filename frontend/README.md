@@ -4,8 +4,6 @@ This project is created from Vite: `npm create vite@latest` - typescript-swc Rea
 
 ## Setup
 
-To run the development server, run: `npm run dev` and go to whatever the terminal says "Local" is (ex. `http://localhost:5173/`)
-
 ### Install brew packages
 
 _TODO: Set up with Docker_
@@ -112,49 +110,3 @@ Answers to questions:
 - Do you require semicolons? · **Yes**
 
 ## Documentation
-
-### Project Structure
-
-src
-
-- assets
-- components
-- config
-- views
-  - auth
-  - profile
-  - timer
-- hooks
-- routes
-- stores
-- test
-- types
-- utils
-
-```
-.
-└── /src
-    └── /views
-        ├── /Authors
-        │   ├── /AuthorsPage
-        │   │   ├── AuthorsPage.js
-        │   │   └── AuthorsPage.test.js
-        │   └── /AuthorBlurb
-        │       ├── /AuthorBlurb.js
-        │       └── /AuthorBlurb.test.js
-        ├── /Books
-        │   ├── /BooksPage
-        │   │   ├── BooksPage.js
-        │   │   └── BooksPage.test.js
-        │   └── /BookForm
-        │       ├── /BookForm.js
-        │       └── /BookForm.test.js
-        └── /Login
-            ├── LoginPage
-            │   ├── LoginPage.styles.js
-            │   ├── LoginPage.js
-            │   └── LoginPage.test.js
-            └── LoginForm
-                ├── LoginForm.js
-                └── LoginForm.test.js
-```
