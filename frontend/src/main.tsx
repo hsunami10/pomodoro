@@ -6,9 +6,8 @@ import TimerPage from '@pages/timer/TimerPage';
 import ProfilePage from '@pages/profile/ProfilePage';
 import SettingsPage from '@pages/settings/SettingsPage';
 import TasksPage from '@pages/tasks/TasksPage';
-import ErrorPage from '@/error-page';
-import './index.css';
-// import './global.css';
+import ErrorPage from '@/routes/error-page';
+import './global.css';
 
 const router = createBrowserRouter([
   {
