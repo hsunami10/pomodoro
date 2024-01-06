@@ -1,6 +1,8 @@
 import { useState } from 'react';
 // import styles from './TimerPage.module.css';
 
+type TimerType = 'Break' | 'Focus';
+
 // TODO: Refactor to Redux global store
 const TIMERS = [25, 5, 25, 5, 25, 5, 25, 15] as const;
 const INITIAL_TIMER_NUM: number = 0 as const;
@@ -58,6 +60,14 @@ const TimerPage = () => {
     startNextRound();
   };
 
+  const getTimerType = (): TimerType => {
+    if (timerNum % 2 === 0) {
+      return 'Focus';
+    } else {
+      return 'Break';
+    }
+  };
+
   const renderTime = () => {
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
@@ -67,18 +77,10 @@ const TimerPage = () => {
     }`;
   };
 
-  const timerType = (): 'Break' | 'Focus' => {
-    let type: 'Break' | 'Focus' = 'Break';
-    if (timerNum % 2 === 0) {
-      type = 'Focus';
-    }
-    return type;
-  };
-
   const renderDescription = () => {
     const roundNumber =
-      ((timerType() === 'Focus' ? timerNum + 1 : timerNum) + 1) / 2;
-    return `${timerType()} #${roundNumber}`;
+      ((getTimerType() === 'Focus' ? timerNum + 1 : timerNum) + 1) / 2;
+    return `${getTimerType()} #${roundNumber}`;
   };
 
   return (
