@@ -9,7 +9,6 @@ import settings from '@assets/settings.svg';
 // eslint-disable-next-line import/no-unresolved
 import logo from '/logo.svg';
 
-// TODO: Refactor
 const NAVIGATION_ITEMS = [
   {
     label: 'TIMER',
@@ -31,6 +30,7 @@ const NAVIGATION_ITEMS = [
 const Root = () => {
   const [currentRoute, setCurrentRoute] = useState(NAVIGATION_ITEMS[0].route);
 
+  // TODO: Refactor
   const renderRoutes = () => {
     return NAVIGATION_ITEMS.map((navItem) => {
       const { label, route, icon } = navItem;
