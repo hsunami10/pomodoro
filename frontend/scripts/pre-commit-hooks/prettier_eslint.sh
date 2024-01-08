@@ -10,6 +10,8 @@ fi
 
 cd "$gitroot"
 
+# ALL_DIFFED_FILES=$(git diff HEAD --cached --name-only --diff-filter=ACMR)
+
 TS_TSX_JSON_DIFFED_FILES=$(git diff HEAD --cached --name-only --line-prefix="$gitroot/" --diff-filter=ACMR -- '*.tsx' '*.ts' '*.json')
 TS_TSX_DIFFED_FILES=$(git diff HEAD --cached --name-only --line-prefix="$gitroot/" --diff-filter=ACMR -- '*.tsx' '*.ts')
 
