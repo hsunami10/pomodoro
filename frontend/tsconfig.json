@@ -9,13 +9,7 @@
     /* Absolute paths */
     "baseUrl": ".",
     "paths": {
-      // Path aliases for imports (alphabetical order)
-      //* IMPORTANT: Mirror changes in vite.config.ts, .eslintrc.yml
-      "@/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@routes/*": ["src/routes/*"]
+      "@/*": ["src/*"]
     },
 
     /* Bundler mode */

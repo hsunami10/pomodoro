@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import styles from './root.module.css';
 
-import hamburger from '@assets/hamburger.svg';
-import timer from '@assets/timer.svg';
-import settings from '@assets/settings.svg';
+import hamburger from '@/assets/hamburger.svg';
+import timer from '@/assets/timer.svg';
+import settings from '@/assets/settings.svg';
 
 // eslint-disable-next-line import/no-unresolved
 import logo from '/logo.svg';
