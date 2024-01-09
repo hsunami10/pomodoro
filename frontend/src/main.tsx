@@ -7,6 +7,7 @@ import ProfilePage from '@/features/profile/ProfilePage';
 import SettingsPage from '@/features/settings/SettingsPage';
 import TasksPage from '@/features/shop/ShopPage';
 import ErrorPage from '@/routes/error-page';
+import HomePage from '@/features/home/HomePage';
 import './global.css';
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/home',
+        element: <HomePage />,
+      },
       {
         path: '/timer',
         element: <TimerPage />,

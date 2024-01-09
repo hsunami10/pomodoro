@@ -9,7 +9,18 @@ import settings from '@/assets/settings.svg';
 // eslint-disable-next-line import/no-unresolved
 import logo from '/logo.svg';
 
-const NAVIGATION_ITEMS = [
+interface NavigationItem {
+  label: string;
+  route: string;
+  icon: string;
+}
+
+const NAVIGATION_ITEMS: NavigationItem[] = [
+  {
+    label: 'HOME',
+    route: '/home',
+    icon: '',
+  },
   {
     label: 'TIMER',
     route: '/timer',
@@ -60,7 +71,7 @@ const Root = () => {
           <ul className={styles.unorderedList}>{renderRoutes()}</ul>
         </nav>
       </div>
-      <div id="detail">
+      <div className={styles.fill}>
         <Outlet />
       </div>
     </>
