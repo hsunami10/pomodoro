@@ -23,16 +23,60 @@ function generateShapes(): ShapeState[] {
 
 const INITIAL_STATE = generateShapes();
 
+/**
+ * Links to where I found the logic:
+ *  - https://stackoverflow.com/a/70608516/9477827
+ *  - https://stackoverflow.com/a/49973424/9477827
+ *  - https://dev.to/robotspacefish/resizing-html5-canvas-and-scaling-sprites-5cpe
+ */
 const HomePage = () => {
+  const CANVAS_VIRTUAL_WIDTH = 1366;
+  const CANVAS_VIRTUAL_HEIGHT = 768;
+
+  // Native game resolution (does not change)
+  const NATIVE_WIDTH = CANVAS_VIRTUAL_WIDTH;
+  const NATIVE_HEIGHT = CANVAS_VIRTUAL_HEIGHT;
+
+  // % of browser window to be taken up by the canvas
+  const windowPercentage = 0.9; // TODO: Change this later when full screen & moving out of react-router
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const [scale, setScale] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
   const [stars, setStars] = useState(INITIAL_STATE);
-  const [width, setWidth] = useState(100);
-  const [height, setHeight] = useState(100);
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((event) => {
-      setWidth(event[0].contentBoxSize[0].inlineSize);
-      setHeight(event[0].contentBoxSize[0].blockSize);
+      let newWidth = event[0].contentBoxSize[0].inlineSize;
+      let newHeight = event[0].contentBoxSize[0].blockSize;
+
+      const nativeRatio = NATIVE_WIDTH / NATIVE_HEIGHT;
+      const browserWindowRatio = newWidth / newHeight;
+
+      // the browser window is too wide
+      if (browserWindowRatio > nativeRatio) {
+        // take up 90% of window height divisible by tile size
+        // height must be changed first since width is based on it
+        newHeight = Math.floor(newHeight * windowPercentage);
+        // if (newHeight > maxWidth) newHeight = maxHeight;
+        newWidth = Math.floor(newHeight * nativeRatio);
+      } else {
+        // browser window is too high
+        // take up 90% of window width divisible by tile size
+        // width must be changed first since height is based on it
+        newWidth = Math.floor(newWidth * windowPercentage);
+        // if (newWidth > maxWidth) newWidth = maxWidth;
+        newHeight = Math.floor(newWidth / nativeRatio);
+      }
+
+      const scale = Math.min(
+        newWidth / CANVAS_VIRTUAL_WIDTH,
+        newHeight / CANVAS_VIRTUAL_HEIGHT,
+      );
+      setWidth(newWidth);
+      setHeight(newHeight);
+      setScale(scale);
     });
 
     if (ref?.current) {
@@ -42,7 +86,7 @@ const HomePage = () => {
     return () => {
       resizeObserver.disconnect();
     };
-  }, [ref]);
+  }, [ref, NATIVE_WIDTH, NATIVE_HEIGHT]);
 
   const handleDragStart = (e: Konva.KonvaEventObject<DragEvent>) => {
     const id = e.target.id();
@@ -94,12 +138,15 @@ const HomePage = () => {
     ));
   };
 
-  // const CANVAS_VIRTUAL_WIDTH = 1366;
-  // const CANVAS_VIRTUAL_HEIGHT = 768;
-
   return (
     <div className={styles.container} ref={ref}>
-      <Stage width={width} height={height}>
+      <Stage
+        className={styles.stage}
+        width={width}
+        height={height}
+        scaleX={scale}
+        scaleY={scale}
+      >
         <Layer>
           <Text text="Try to drag a star" />
           {renderStars()}
