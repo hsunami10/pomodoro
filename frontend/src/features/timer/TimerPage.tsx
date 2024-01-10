@@ -40,12 +40,6 @@ const TimerPage = () => {
     setTimer(undefined);
   };
 
-  const handleResetClick = () => {
-    stopTimer();
-    setTimerNum(INITIAL_TIMER_NUM);
-    setSeconds(TIMERS[INITIAL_TIMER_NUM] * 60);
-  };
-
   const handlePlayPauseClick = () => {
     if (timer) {
       stopTimer();
@@ -59,9 +53,14 @@ const TimerPage = () => {
     startTimer();
   };
 
+  const handleResetClick = () => {
+    stopTimer();
+    setTimerNum(INITIAL_TIMER_NUM);
+    setSeconds(TIMERS[INITIAL_TIMER_NUM] * 60);
+  };
+
   return (
     <>
-      <h1>Timer Page!</h1>
       <TimerDisplay timerNum={timerNum} seconds={seconds} />
       <button onClick={handlePlayPauseClick}>
         {!timer ? 'Play' : 'Pause'}

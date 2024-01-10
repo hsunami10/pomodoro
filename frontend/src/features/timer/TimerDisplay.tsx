@@ -19,12 +19,13 @@ const TimerDisplay = ({ seconds, timerNum }: Props) => {
   const remainderSeconds = seconds % 60;
 
   return (
-    <>
+    <div>
+      <h1>Timer Page!</h1>
       <p>{`${timerType} #${roundNumber}`}</p>
       <h2>{`${minutes < 10 ? '0' + minutes : minutes}:${
         remainderSeconds < 10 ? '0' + remainderSeconds : remainderSeconds
       }`}</h2>
-    </>
+    </div>
   );
 };
 
