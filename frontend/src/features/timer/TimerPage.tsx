@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TimerDisplay from './TimerDisplay';
+import TimerHeader from './TimerHeader';
 // import styles from './TimerPage.module.css';
 
 // TODO: Refactor
@@ -61,6 +62,7 @@ const TimerPage = () => {
 
   return (
     <>
+      <TimerHeader />
       <TimerDisplay timerNum={timerNum} seconds={seconds} />
       <button onClick={handlePlayPauseClick}>
         {!timer ? 'Play' : 'Pause'}
