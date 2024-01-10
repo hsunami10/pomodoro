@@ -16,8 +16,8 @@ const NAVIGATION_ITEMS = [
     icon: timer,
   },
   {
-    label: 'SHOP',
-    route: '/shop',
+    label: 'ANALYTICS',
+    route: '/analytics',
     icon: hamburger,
   },
   {

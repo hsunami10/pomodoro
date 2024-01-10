@@ -5,7 +5,7 @@ import Root from '@/routes/root';
 import TimerPage from '@/features/timer/TimerPage';
 import ProfilePage from '@/features/profile/ProfilePage';
 import SettingsPage from '@/features/settings/SettingsPage';
-import TasksPage from '@/features/shop/ShopPage';
+import AnalyticsPage from '@/features/analytics/AnalyticsPage';
 import ErrorPage from '@/routes/error-page';
 import './global.css';
 
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <TimerPage />,
       },
       {
-        path: '/shop',
-        element: <TasksPage />,
+        path: '/analytics',
+        element: <AnalyticsPage />,
       },
       {
         path: '/profile',
