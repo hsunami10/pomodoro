@@ -58,7 +58,7 @@ Now any changes you make in the source code should reflect automatically! It's n
 
 If you get a bunch of errors with the Build → Sync window below: `Unresolved plugin: ...`
 
-Try to invalidate the caches:
+Try to invalidate caches:
 
 1. In the upper menu bar (next to "Edit"), click **File** → **Invalidate Caches**
 2. Click **Invalidate and Restart**.
@@ -72,5 +72,5 @@ Sources:
 
 ### Keyboard Shortcuts
 
-- Shift + Shift – open search menu
-- Ctrl/Cmd + , - open settings menu
+- `Shift` + `Shift` – open search menu
+- `Ctrl/Cmd` + `,` – open settings menu
