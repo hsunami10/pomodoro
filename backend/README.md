@@ -23,10 +23,10 @@ Add the code below to the pom.xml file &#8594; `<dependencies>`:
 
 ```xml
 <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<scope>runtime</scope>
-  	<optional>true</optional>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<scope>runtime</scope>
+  <optional>true</optional>
 </dependency>
 ```
 
@@ -34,10 +34,10 @@ Add the code below to the pom.xml file &#8594; `<dependencies>`:
 
 Go to settings
 
-- Click IntelliJ Menu &#8594; Preferences or
+- Click IntelliJ Menu → Preferences or
 - Cmd/Ctrl + ,
 
-&#8594; dropdown arrow next to **Build, Execution, Deployment** &#8594; **Compiler** &#8594; **Build Project Automatically**
+→ dropdown arrow next to **Build, Execution, Deployment** → **Compiler** → **Build Project Automatically**
 
 #### 3) Enable `compiler.automake.allow.when.app.running` option in the Registry
 
@@ -60,7 +60,7 @@ If you get a bunch of errors with the Build → Sync window below: `Unresolved p
 
 Try to invalidate the caches:
 
-1. Click **File 🡒 Invalidate Caches / Restart**.
+1. In the upper menu bar (next to "Edit"), click **File** → **Invalidate Caches**
 2. Click **Invalidate and Restart**.
 
 Sources:
