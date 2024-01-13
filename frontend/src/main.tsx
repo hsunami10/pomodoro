@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from '@/routes/root';
 import TimerPage from '@/features/timer/TimerPage';
+import HabitTrackerPage from '@/features/habit-tracker/HabitTrackerPage';
 import ProfilePage from '@/features/profile/ProfilePage';
 import SettingsPage from '@/features/settings/SettingsPage';
 import AnalyticsPage from '@/features/analytics/AnalyticsPage';
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/timer',
         element: <TimerPage />,
+      },
+      {
+        path: '/tracker',
+        element: <HabitTrackerPage />,
       },
       {
         path: '/analytics',

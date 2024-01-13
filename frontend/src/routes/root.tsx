@@ -9,15 +9,31 @@ import settings from '@/assets/settings.svg';
 // eslint-disable-next-line import/no-unresolved
 import logo from '/logo.svg';
 
-const NAVIGATION_ITEMS = [
+interface NavItem {
+  label: string;
+  route: string;
+  icon: string;
+}
+
+const NAVIGATION_ITEMS: NavItem[] = [
   {
     label: 'TIMER',
     route: '/timer',
     icon: timer,
   },
   {
+    label: 'HABIT TRACKER',
+    route: '/tracker',
+    icon: timer,
+  },
+  {
     label: 'ANALYTICS',
     route: '/analytics',
+    icon: hamburger,
+  },
+  {
+    label: 'PROFILE',
+    route: '/profile',
     icon: hamburger,
   },
   {
