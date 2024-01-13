@@ -17,7 +17,7 @@ const Modal = ({
   const handleEscapeKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onClose && onClose();
+        onClose();
       }
     },
     [onClose],
@@ -32,14 +32,17 @@ const Modal = ({
 
   return (
     isOpen && (
-      <dialog className={styles.container}>
-        {hasCloseButton && (
-          <div className={styles.header}>
-            <button onClick={() => onClose && onClose()}>Close</button>
-          </div>
-        )}
-        {children}
-      </dialog>
+      <>
+        <div onClick={() => onClose()} className={styles.backdrop} />
+        <dialog className={styles.modal}>
+          {hasCloseButton && (
+            <div className={styles.header}>
+              <button onClick={() => onClose()}>Close</button>
+            </div>
+          )}
+          {children}
+        </dialog>
+      </>
     )
   );
 };
