@@ -1,4 +1,4 @@
-import EmotionCheckInModal from '@/features/check-in/EmotionCheckInModal';
+import EmotionModal from '@/features/reflections/EmotionModal';
 import { useState } from 'react';
 
 const AnalyticsPage = () => {
@@ -8,7 +8,7 @@ const AnalyticsPage = () => {
     <>
       <h1>Analytics Page!</h1>
       <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
-      <EmotionCheckInModal
+      <EmotionModal
         onClose={() => setIsModalOpen(false)}
         isOpen={isModalOpen}
       />
