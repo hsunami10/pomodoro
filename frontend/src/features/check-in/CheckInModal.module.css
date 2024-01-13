@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: bisque;
+}
+
+.buttonContainer {
+  display: flex;
+  /*
+  The "align-items: center" in the parent container squashes the width and restricts the child's justify-content.
+  Setting the width to 100% allows the justify-content: space-around.
+  See more here - https://stackoverflow.com/questions/48448708/flexbox-parent-align-items-overriding-child-justify-content.
+  */
+  width: 100%;
+  justify-content: space-around;
+}
