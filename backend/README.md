@@ -182,11 +182,15 @@ Sources:
 
 ### JOOQ
 
-**IntelliJ unable to see/auto-complete generated classes**
-
-This could happen if `target/generated-sources/jooq` is updated when the IDE is open. Try reloading the project with **Shift + Shift** → **Reload project**.
+- **IntelliJ unable to see/auto-complete generated classes** → This could happen if `target/generated-sources/jooq` is updated when the IDE is open. Try reloading the project with **Shift + Shift** → **Reload project**.
+- **Do not see target/generated-sources/jooq** → Try generating it manually: `./mvnw clean generate-sources`
 
 ## Learning Resources
+
+### Spring
+
+- https://www.marcobehler.com/guides/spring-framework
+- https://www.youtube.com/watch?v=QuvS_VLbGko
 
 ### JOOQ
 
