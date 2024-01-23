@@ -107,12 +107,12 @@
 									<excludes/>
 									<inputSchema>public</inputSchema>
 								</database>
-								<generate>
-									<pojos>true</pojos>
-									<pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
-									<javaTimeTypes>true</javaTimeTypes>
-									<fluentSetters>true</fluentSetters>
-								</generate>
+<!--								<generate>-->
+<!--									<pojos>true</pojos>-->
+<!--									<pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>-->
+<!--									<javaTimeTypes>true</javaTimeTypes>-->
+<!--									<fluentSetters>true</fluentSetters>-->
+<!--								</generate>-->
 								<target>
 									<packageName>com.hsunami.pomodoro.model</packageName>
 									<directory>target/generated-sources/jooq</directory>
