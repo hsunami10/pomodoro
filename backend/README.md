@@ -186,6 +186,13 @@ Sources:
 
 This could happen if `target/generated-sources/jooq` is updated when the IDE is open. Try reloading the project with **Shift + Shift** → **Reload project**.
 
+## Learning Resources
+
+### JOOQ
+
+- https://medium.com/p/4a86378a4e5e
+- https://www.baeldung.com/jooq-with-spring
+
 ## Tips & Trips
 
 ### Keyboard Shortcuts
