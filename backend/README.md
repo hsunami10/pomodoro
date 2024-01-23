@@ -2,6 +2,118 @@
 
 ## Setup
 
+### PostgreSQL Database
+
+[PostgreSQL Cheat Sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/)
+
+Install PostgreSQL via Homebrew: `brew install postgresql`
+
+#### 1) Run Postgres Database Server Locally
+
+Here's [list of commands](https://tableplus.com/blog/2018/10/how-to-start-stop-restart-postgresql-server.html) to start / stop the server
+
+```shell
+# Manual start
+pg_ctl -D /usr/local/var/postgres start # Start server
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start # Start server with log file
+
+# Manual stop
+pg_ctl -D /usr/local/var/postgres stop
+
+# Auto on log-in
+brew services start postgresql
+brew services stop postgresql
+```
+
+So... run the "start server" command:
+
+```
+pg_ctl -D /usr/local/var/postgres start
+```
+
+Once started, check if postgres is running:
+
+```shell
+export PGDATA='/usr/local/var/postgres' # Set PGDATA env variable
+pg_ctl status
+```
+
+`pg_ctl status` should print out:
+
+```shell
+pg_ctl: server is running (PID: 15460)
+/usr/local/Cellar/postgresql/14.4/bin/postgres "-D" "/usr/local/var/postgres"
+```
+
+If this is a fresh installation, need to initialize the database cluster (a collection of databases managed by a single server)
+
+```shell
+initdb /usr/local/var/postgres
+```
+
+Default host: `127.0.0.1` / `localhost`, port: `5432`
+
+#### 2) Create & Access a Database with PSQL Shell
+
+##### Log Into PSQL Shell
+
+Run `createdb pomodoro` in terminal (or whatever the app name is).
+
+To access the database, you need to log into the shell. There are two ways to log in:
+
+1. as a username "postgres" → `psql -U postgres`
+2. as your local username → `psql`
+
+Note: if you run into an error `FATAL:  database "username" does not exist`, run `createdb username` and try again.
+
+Once you log into the shell, it should print out something like:
+
+```
+psql (14.10 (Homebrew))
+Type "help" for help.
+
+username=#
+```
+
+##### Access Database
+
+Once you're in the psql shell, run `\c pomodoro` to connect to the database. Now you can run SQL commands straight from the command line!
+
+#### PSQL Shell Commands
+
+```shell
+# in regular terminal
+psql -U postgres # log into shell as "postgres" user
+createdb db_name # create database with name "db_name"
+dropdb db_name # drop database with name "db_name"
+
+# in psql shell
+\l # list all databases
+\c db_name # connect to a specific database with name "db_name"
+\d # list all relations (tables)
+\q # exit/quit shell
+```
+
+#### TablePlus GUI
+
+It's a lot easier to work with a GUI rather than a shell → we use TablePlus ([download here](https://tableplus.com/)).
+
+Once you're on the main screen, click the small `+` to add a new connection. Make sure it's on PostgreSQL and click **"Create."**
+
+![Screen Shot 2024-01-22 at 3.40.12 PM](/Users/michaelhsu/Library/Application Support/typora-user-images/Screen Shot 2024-01-22 at 3.40.12 PM.png)
+
+For the connection properties, here are the the values for the fields:
+
+- Name → `pomodoro`
+- Host/Socket → leave as default (`127.0.0.1`)
+- Port → leave as default (`5432`)
+- User, Password → leave as default
+- **Database → `pomodoro` (name of database)**
+
+Click "Test" to confirm that all the fields are correct (should all highlighted green) and click "Connect" to finish!
+
+![Screen Shot 2024-01-22 at 3.41.18 PM](/Users/michaelhsu/Library/Application Support/typora-user-images/Screen Shot 2024-01-22 at 3.41.18 PM.png)
+
 ### iTermocil
 
 Add this code snippet to the windows array:
@@ -67,6 +179,12 @@ Sources:
 
 - https://stackoverflow.com/questions/20496239/maven-plugins-can-not-be-found-in-intellij
 - https://stackoverflow.com/questions/38957963/unresolved-plugin-org-apache-maven-pluginsmaven-jar-plugin2-4
+
+### JOOQ
+
+**IntelliJ unable to see/auto-complete generated classes**
+
+This could happen if `target/generated-sources/jooq` is updated when the IDE is open. Try reloading the project with **Shift + Shift** → **Reload project**.
 
 ## Tips & Trips
 

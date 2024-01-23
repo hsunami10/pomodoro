@@ -16,18 +16,36 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jooq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.6.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- https://dev.to/imanuel/auto-reload-springboot-in-intellij-idea-1l65 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -35,7 +53,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-
 		<!-- https://spring.io/guides/gs/spring-boot/#:~:text=Add%20Production%2Dgrade%20Services -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,6 +65,105 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<!-- Allow pom.xml to read configuration data from a resource file. -->
+			<!-- https://www.baeldung.com/jooq-with-spring#2-properties-maven-plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>src/main/resources/application.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.mojo</groupId>-->
+<!--				<artifactId>sql-maven-plugin</artifactId>-->
+<!--				<version>1.5</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>initialize</phase>-->
+<!--						<goals>-->
+<!--							<goal>execute</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<driver>${datasource.driver}</driver>-->
+<!--							<url>${datasource.jdbcUrl}</url>-->
+<!--							<username>${datasource.username}</username>-->
+<!--							<password>${datasource.password}</password>-->
+<!--							<srcFiles>-->
+<!--								<srcFile>src/main/resources/generate_schema.sql</srcFile>-->
+<!--							</srcFiles>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<dependencies>-->
+<!--					<dependency>-->
+<!--						<groupId>org.postgresql</groupId>-->
+<!--						<artifactId>postgresql</artifactId>-->
+<!--						<version>42.6.0</version>-->
+<!--					</dependency>-->
+<!--				</dependencies>-->
+<!--			</plugin>-->
+
+			<!-- JOOQ Code Generator -->
+			<plugin>
+				<groupId>org.jooq</groupId>
+				<artifactId>jooq-codegen-maven</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<!-- JDBC connection parameters -->
+							<jdbc>
+								<driver>${datasource.driver}</driver>
+								<url>${datasource.jdbcUrl}</url>
+								<user>${datasource.username}</user>
+								<password>${datasource.password}</password>
+							</jdbc>
+							<!-- Generator parameters -->
+							<generator>
+								<database>
+									<name>org.jooq.meta.postgres.PostgresDatabase</name>
+									<includes>.*</includes>
+									<excludes/>
+									<inputSchema>public</inputSchema>
+								</database>
+								<generate>
+									<pojos>true</pojos>
+									<pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
+									<javaTimeTypes>true</javaTimeTypes>
+									<fluentSetters>true</fluentSetters>
+								</generate>
+								<target>
+									<packageName>com.hsunami.pomodoro.model</packageName>
+									<directory>target/generated-sources/jooq</directory>
+								</target>
+							</generator>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
