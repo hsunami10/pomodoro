@@ -37,11 +37,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -65,14 +60,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 			<!-- Allow pom.xml to read configuration data from a resource file. -->
 			<!-- https://www.baeldung.com/jooq-with-spring#2-properties-maven-plugin -->
@@ -94,36 +81,6 @@
 					</execution>
 				</executions>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.codehaus.mojo</groupId>-->
-<!--				<artifactId>sql-maven-plugin</artifactId>-->
-<!--				<version>1.5</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<phase>initialize</phase>-->
-<!--						<goals>-->
-<!--							<goal>execute</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<driver>${datasource.driver}</driver>-->
-<!--							<url>${datasource.jdbcUrl}</url>-->
-<!--							<username>${datasource.username}</username>-->
-<!--							<password>${datasource.password}</password>-->
-<!--							<srcFiles>-->
-<!--								<srcFile>src/main/resources/generate_schema.sql</srcFile>-->
-<!--							</srcFiles>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--				<dependencies>-->
-<!--					<dependency>-->
-<!--						<groupId>org.postgresql</groupId>-->
-<!--						<artifactId>postgresql</artifactId>-->
-<!--						<version>42.6.0</version>-->
-<!--					</dependency>-->
-<!--				</dependencies>-->
-<!--			</plugin>-->
-
 			<!-- JOOQ Code Generator -->
 			<plugin>
 				<groupId>org.jooq</groupId>
@@ -137,10 +94,10 @@
 						<configuration>
 							<!-- JDBC connection parameters -->
 							<jdbc>
-								<driver>${datasource.driver}</driver>
-								<url>${datasource.jdbcUrl}</url>
-								<user>${datasource.username}</user>
-								<password>${datasource.password}</password>
+								<driver>${db.driver}</driver>
+								<url>${db.jdbcUrl}</url>
+								<user>${db.username}</user>
+								<password>${db.password}</password>
 							</jdbc>
 							<!-- Generator parameters -->
 							<generator>
