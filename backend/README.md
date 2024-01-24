@@ -204,6 +204,10 @@ If the option is not there, then you can skip this step.
 
 Now any changes you make in the source code should reflect automatically! It's not instant though, so give it a few seconds to rebuild the application.
 
+## PostgreSQL Database Diagram
+
+https://dbdiagram.io/d/pomodoro-65b18287ac844320aea892ac
+
 ## Troubleshooting
 
 If you get a bunch of errors with the Build → Sync window below: `Unresolved plugin: ...`
