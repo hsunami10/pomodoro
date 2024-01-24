@@ -94,7 +94,7 @@ dropdb db_name # drop database with name "db_name"
 \q # exit/quit shell
 ```
 
-#### TablePlus GUI
+#### 3) Install TablePlus GUI
 
 It's a lot easier to work with a GUI rather than a shell → we use TablePlus ([download here](https://tableplus.com/)).
 
@@ -113,6 +113,44 @@ For the connection properties, here are the the values for the fields:
 Click "Test" to confirm that all the fields are correct (should all highlighted green) and click "Connect" to finish!
 
 ![Screen Shot 2024-01-22 at 3.41.18 PM](/Users/michaelhsu/Library/Application Support/typora-user-images/Screen Shot 2024-01-22 at 3.41.18 PM.png)
+
+#### 4) Set the Timezone of Database Server
+
+The default timezone of the server is local timezone, so you'll need to set it manually.
+
+Do **not** use `SET TIME ZONE 'UTC'` in SQL because it only sets it for the [current user's session](https://stackoverflow.com/a/6663848/9477827), not the entire server. Instead, you need to access the `postgresql.conf` file to set it permanently.
+
+```shell
+# Log into PSQL shell as "postgres" user
+psql -U postgres
+
+# Show path to config file
+show config_file
+\q
+
+# For me, it's /usr/local/var/postgres/postgresql.conf (yours could be different)
+code <path_to_config_file>
+```
+
+Once you have the config file open in the editor, look up "timezone" (not "log_timezone") and change the value to `'UTC'`. It should look something like this:
+
+```
+# - Locale and Formatting -
+
+datestyle = 'iso, mdy'
+#intervalstyle = 'postgres'
+timezone = 'UTC'
+#timezone_abbreviations = 'Default'     # Select the set of available time zone
+```
+
+Restart the database server with the `pg_ctl` stop/start commands listed above, and you should be good!
+
+To validate if it worked, create a user session with PSQL or TablePlus and run:
+
+```sql
+select now(); -- should have +00 offset
+show time zone; -- should output 'UTC'
+```
 
 ### iTermocil
 
@@ -197,6 +235,10 @@ Sources:
 
 - https://medium.com/p/4a86378a4e5e
 - https://www.baeldung.com/jooq-with-spring
+
+### PostgreSQL
+
+- [Use timestamptz (timestamp with time zone)](https://stackoverflow.com/a/17562423/9477827)
 
 ## Tips & Trips
 
