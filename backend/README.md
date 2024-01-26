@@ -206,6 +206,8 @@ Now any changes you make in the source code should reflect automatically! It's n
 
 ## PostgreSQL Database Diagram
 
+![pomodoro](/Users/michaelhsu/Downloads/pomodoro.png)
+
 https://dbdiagram.io/d/pomodoro-65b18287ac844320aea892ac
 
 ## Troubleshooting
@@ -243,6 +245,8 @@ Sources:
 ### PostgreSQL
 
 - [Use timestamptz (timestamp with time zone)](https://stackoverflow.com/a/17562423/9477827)
+- [Enum type alternatives and comparisons](https://medium.com/swlh/postgresql-3-ways-to-replace-enum-305861e089bc)
+- [Use identity column instead of serial type](https://stackoverflow.com/a/9875517/9477827)
 
 ## Tips & Trips
 

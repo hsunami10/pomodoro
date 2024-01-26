@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS reflection;
+DROP TABLE IF EXISTS habit;
+DROP TABLE IF EXISTS account;
+
+DROP TYPE IF EXISTS reflection_type;
+DROP TYPE IF EXISTS frequency_type;
+DROP TYPE IF EXISTS habit_goal;
