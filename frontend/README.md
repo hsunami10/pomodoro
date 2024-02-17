@@ -34,7 +34,7 @@ windows:
     layout: main-vertical
     panes:
       - commands:
-          - cd ~/Documents/GitHub/pomodoro/frontend
+          - ''
         focus: true
       - npm run dev
       - npx tsc --watch
